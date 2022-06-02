@@ -19,6 +19,26 @@ const SizedBox(
 );
 ```
 
+## 完整的示例
+```dart
+//[PlayerStateListener] 继承它,实现那些方法,会回调播放器的生命周期
+class _LivePageState extends State<LivePage> implements PlayerStateListener{}
+
+final PlayerController _controller = PlayerController();
+
+AspectRatio(
+  aspectRatio: 1,
+    child: VideoPlayerWidget(
+        controller: _controller,
+        url:"http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_4x3/gear2/prog_index.m3u8",
+        autoPlay: true,
+        onCreate: () {
+          _controller.addStateChangeListener(this);
+        },
+  ),
+)
+```
+
 ## `VideoPlayerWidget`可选参数
 
 1. 组件控制器

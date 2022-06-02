@@ -249,6 +249,7 @@ public class SwiftFlutterRtmpPlugin: NSObject, FlutterPlugin, FlutterPlatformVie
         let str =  json.rawString()
         
         if(str != nil){
+            print("播放状态回调:\(String(describing: str))");
             eventSink(str)
         }
      
